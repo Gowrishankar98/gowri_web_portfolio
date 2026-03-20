@@ -25,6 +25,7 @@ const BentoStats = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Redux Saga</span>
+              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">React Navigation</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">TypeScript</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Native Modules</span>
             </div>
@@ -49,6 +50,8 @@ const BentoStats = () => {
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Node.js</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Socket.io</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Twilio API</span>
+              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Express.js</span>
+              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase"> Graph Ql</span>
             </div>
           </div>
         </div>

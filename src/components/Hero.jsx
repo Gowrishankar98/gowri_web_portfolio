@@ -1,8 +1,17 @@
 import React from 'react';
 
 const Hero = () => {
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('contact');
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative min-h-[819px] flex flex-col justify-center px-8 md:px-20 overflow-hidden pt-24">
+    <section className="relative min-h-[819px] flex flex-col justify-center px-8 md:px-20 overflow-hidden pt-24" id="init">
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary blur-[120px] rounded-full"></div>
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary blur-[100px] rounded-full opacity-40"></div>
@@ -24,8 +33,12 @@ while(active) {
           <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
           <span className="font-mono text-[10px] uppercase tracking-tighter text-secondary">System Status: Optimized</span>
         </div>
-        <h1 className="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter leading-tight">
-          GOWRISHANKAR K // <br />
+        <h1 className="font-headline text-[clamp(2rem,9vw,6rem)] font-extrabold tracking-tighter leading-tight">
+          <span className="text-secondary opacity-60 font-mono font-medium tracking-normal ml-2 hover:opacity-100 transition-opacity">&lt;</span> 
+          <span className="whitespace-nowrap">GOWRISHANKAR K</span>
+          {/* <br /> */}
+          <span className="text-secondary opacity-60 font-mono font-medium tracking-normal ml-2 hover:opacity-100 transition-opacity">/&gt;</span> 
+          <br />
           <span className="text-primary syntax-glow">SENIOR REACT NATIVE DEVELOPER</span>
         </h1>
         <p className="font-mono text-lg md:text-2xl text-on-surface-variant flex flex-wrap md:flex-nowrap items-center gap-3">
@@ -33,14 +46,22 @@ while(active) {
           <span className="hidden md:block h-px w-24 bg-outline-variant"></span>
           <span className="text-on-surface/60 italic w-full md:w-auto mt-2 md:mt-0">Building fluid cross-platform engines.</span>
         </p>
-        <div className="flex flex-wrap gap-4 pt-4">
-          <button className="px-8 py-3 bg-primary text-on-primary font-bold rounded-md hover:shadow-[0_0_25px_rgba(191,243,101,0.3)] hover:bg-secondary transition-all flex items-center gap-2 group">
+        <div className="flex flex-col md:flex-row flex-wrap gap-4 pt-4">
+          <button 
+            onClick={scrollToContact}
+            className="px-8 py-3 bg-primary text-on-primary font-bold rounded-md hover:shadow-[0_0_25px_rgba(191,243,101,0.3)] hover:bg-secondary transition-all flex items-center justify-center gap-2 group w-full md:w-auto cursor-pointer"
+          >
             INITIALIZE_PROJECT
             <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
           </button>
-          <button className="px-8 py-3 border border-outline-variant hover:bg-surface-container-high transition-all font-mono text-sm tracking-widest text-[#dfe4fe]">
+          <a 
+            href="/Gowrishankar_K_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="px-8 py-3 border border-outline-variant hover:bg-surface-container-high transition-all font-mono text-sm tracking-widest text-[#dfe4fe] w-full md:w-auto flex justify-center items-center"
+          >
             VIEW_RESOURCES.LOG
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ const Timeline = () => {
       </div>
       <div className="mb-20">
         <h2 className="font-headline text-sm text-primary uppercase tracking-[0.5em] mb-4">&gt;_ VIBE_TIMELINE</h2>
-        <h3 className="text-3xl font-bold font-headline">ARCHENTS IT INDIA (2019 - PRESENT)</h3>
+        <h3 className="text-3xl font-bold font-headline">ARCHENTS IT INDIA (2021 - PRESENT)</h3>
       </div>
       <div className="relative space-y-16">
         {/* Timeline Stem */}
