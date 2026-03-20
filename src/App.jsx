@@ -5,6 +5,7 @@ import CaseStudies from './components/CaseStudies';
 import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Timeline />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }

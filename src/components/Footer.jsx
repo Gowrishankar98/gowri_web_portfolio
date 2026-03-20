@@ -18,9 +18,9 @@ const Footer = () => {
                   <span className="material-symbols-outlined" data-icon="mail">mail</span>
                   GET_IN_TOUCH
                 </a>
-                <a className="px-10 py-4 border border-outline hover:bg-white/5 transition-colors font-mono uppercase tracking-widest text-sm flex items-center gap-3" href="#">
+                <a className="px-10 py-4 border border-outline hover:bg-white/5 transition-colors font-mono uppercase tracking-widest text-sm flex items-center gap-3" href="/Gowrishankar_K_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <span className="material-symbols-outlined" data-icon="download">download</span>
-                  CURRICULUM_VITAE
+                  GET_MY_RESUME
                 </a>
               </div>
             </div>
@@ -35,12 +35,12 @@ const Footer = () => {
             © 2024 KINETIC_OS v1.0.4 - STATUS: OPTIMIZED
           </div>
           <div className="flex gap-8">
-            <a className="text-slate-500 hover:text-lime-300 hover:underline decoration-lime-400 font-mono text-xs uppercase tracking-tight transition-colors" href="#">GITHUB</a>
+            <a className="text-slate-500 hover:text-lime-300 hover:underline decoration-lime-400 font-mono text-xs uppercase tracking-tight transition-colors" href="https://github.com/Gowrishankar98" target="_blank" rel="noopener noreferrer">GITHUB</a>
             <a className="text-slate-500 hover:text-lime-300 hover:underline decoration-lime-400 font-mono text-xs uppercase tracking-tight transition-colors" href="https://linkedin.com/in/gowrishankar-k-a66305117" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
             <a className="text-slate-500 hover:text-lime-300 hover:underline decoration-lime-400 font-mono text-xs uppercase tracking-tight transition-colors" href="#">SOURCE</a>
           </div>
           <div className="hidden lg:block text-slate-700 font-mono text-[10px]">
-            LOC: 12.9716° N, 77.5946° E
+            LOC: 17.4486° N, 78.3924° E
           </div>
         </div>
       </footer>
