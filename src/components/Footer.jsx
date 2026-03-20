@@ -63,7 +63,7 @@ const Footer = () => {
                   <span className="material-symbols-outlined" data-icon="mail">mail</span>
                   GET_IN_TOUCH
                 </a>
-                <a className="px-8 py-4 border border-outline hover:bg-white/5 transition-colors font-mono uppercase tracking-widest text-sm flex items-center justify-center gap-3 w-full sm:w-auto" href="/Gowrishankar_K_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a className="px-8 py-4 border border-outline hover:bg-white/5 transition-colors font-mono uppercase tracking-widest text-sm flex items-center justify-center gap-3 w-full sm:w-auto" href="/Gowrishankar_K_Resume.pdf" download="Gowrishankar_K_Resume.pdf" rel="noopener noreferrer">
                   <span className="material-symbols-outlined" data-icon="download">download</span>
                   GET_MY_RESUME
                 </a>
