@@ -24,9 +24,9 @@ const BentoStats = () => {
               <p className="text-sm text-on-surface-variant font-mono">Cross-platform ecosystem</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Redux Saga</span>
-              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">React Navigation</span>
+              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">JavaScript</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">TypeScript</span>
+              <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Redux</span>
               <span className="px-2 py-1 bg-surface-variant text-[10px] font-mono text-on-surface-variant uppercase">Native Modules</span>
             </div>
           </div>
