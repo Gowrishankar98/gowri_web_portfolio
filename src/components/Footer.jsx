@@ -6,6 +6,15 @@ const Footer = () => {
   const scrollToSection = (e, id) => {
     e.preventDefault();
     setActiveTab(id);
+
+    if (id === "contact" && window.innerWidth < 768) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       // Offset for fixed navbar
@@ -100,12 +109,12 @@ const Footer = () => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-indigo-900/30 bg-[#070d1f]">
-        <div className="flex flex-wrap justify-between items-center px-8 py-4 w-full">
-          <div className="font-mono text-xs uppercase tracking-tight text-lime-400">
+      <footer className="w-full border-t border-indigo-900/30 bg-[#070d1f] pb-20 md:pb-0">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-between items-center px-8 py-4 w-full gap-4 md:gap-0">
+          <div className="font-mono text-xs uppercase tracking-tight text-lime-400 text-center">
             © built by gowrishankar // 100% vibe coded
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             <a
               className="text-slate-500 hover:text-lime-300 hover:underline decoration-lime-400 font-mono text-xs uppercase tracking-tight transition-colors"
               href="https://github.com/Gowrishankar98"
