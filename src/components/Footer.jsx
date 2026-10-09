@@ -14,7 +14,7 @@ const Footer = ({ onOpenArchitectureModal }) => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand & Subtitle */}
         <div className="space-y-1 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
             <span className="font-heading font-bold text-sm tracking-wide text-white">
               GOWRISHANKAR K
             </span>
@@ -29,7 +29,7 @@ const Footer = ({ onOpenArchitectureModal }) => {
         </div>
 
         {/* Footer Nav Links */}
-        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-[10px] sm:text-[11px] font-mono tracking-wider text-slate-400 uppercase">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2.5 text-[10px] sm:text-[11px] font-mono tracking-wider text-slate-400 uppercase">
           <a
             href="https://linkedin.com/in/gowrishankar-k-a66305117"
             target="_blank"

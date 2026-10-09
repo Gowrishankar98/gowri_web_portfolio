@@ -13,42 +13,43 @@ const WorkExperience = () => {
             </svg>
             <span>PRODUCTION LEADERSHIP</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white tracking-tight">
             Work Experience &amp; Engineering Roles
           </h2>
         </div>
-        <p className="text-slate-400 text-xs sm:text-sm max-w-md md:text-right leading-relaxed">
+        <p className="text-slate-400 text-xs sm:text-sm max-w-md text-left md:text-right leading-relaxed">
           Proven track record of architecting scalable mobile architectures, leading multi-platform teams, and delivering mission-critical applications.
         </p>
       </div>
 
       <div className="space-y-6">
         {/* ================= ROLE 1: MATRIMONY.COM ================= */}
-        <div className="glass-card rounded-xl p-6 sm:p-8 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg">
+        <div className="glass-card rounded-xl p-4 sm:p-6 lg:p-8 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg">
           {/* Header Row */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#182338]">
-            <div className="space-y-1">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <h3 className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tight">
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-white tracking-tight">
                   Senior Software Engineer
                 </h3>
-                <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-medium tracking-wide bg-blue-600/20 text-blue-400 border border-blue-500/30">
+                <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-medium tracking-wide bg-blue-600/20 text-blue-400 border border-blue-500/30 shrink-0">
                   Current Role
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-400">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm font-mono text-slate-400">
                 <span className="text-slate-200 font-medium">Matrimony.com</span>
-                <span>•</span>
+                <span className="text-slate-600">•</span>
                 <span>Chennai, India</span>
-                <span>•</span>
+                <span className="text-slate-600">•</span>
                 <span className="text-slate-300">Aug 2022 – Present</span>
               </div>
             </div>
 
-            <div className="self-start lg:self-center">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/25">
-                Domain: Real-Time Matchmaking / Consumer Tech
-              </span>
+            <div className="self-start lg:self-center w-full lg:w-auto">
+              <div className="inline-flex flex-wrap items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded text-[11px] sm:text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/25 max-w-full leading-relaxed">
+                <span className="font-semibold text-amber-300">Domain:</span>
+                <span>Real-Time Matchmaking / Consumer Tech</span>
+              </div>
             </div>
           </div>
 
@@ -111,7 +112,7 @@ const WorkExperience = () => {
           </ul>
 
           {/* Tech Badges Footer */}
-          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center gap-2">
+          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center gap-1.5 sm:gap-2">
             {['React Native CLI', 'Turbo Modules', 'MMKV', 'Redux', 'Twilio Video Engine', 'FCM', 'JavaScript'].map((tag) => (
               <span 
                 key={tag}
@@ -124,31 +125,32 @@ const WorkExperience = () => {
         </div>
 
         {/* ================= ROLE 2: ARCHENTS IT INDIA ================= */}
-        <div className="glass-card rounded-xl p-6 sm:p-8 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg">
+        <div className="glass-card rounded-xl p-4 sm:p-6 lg:p-8 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg">
           {/* Header Row */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#182338]">
-            <div className="space-y-1">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <h3 className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tight">
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-white tracking-tight">
                   Software Engineer L3
                 </h3>
-                <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-medium tracking-wide bg-slate-800 text-slate-300 border border-slate-700">
+                <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-medium tracking-wide bg-slate-800 text-slate-300 border border-slate-700 shrink-0">
                   Prev Role - 2021–2022
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-400">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm font-mono text-slate-400">
                 <span className="text-slate-200 font-medium">Archents IT India Pvt Ltd</span>
-                <span>•</span>
+                <span className="text-slate-600">•</span>
                 <span>Hyderabad, India</span>
-                <span>•</span>
+                <span className="text-slate-600">•</span>
                 <span className="text-slate-300">Healthcare &amp; Clinical Systems</span>
               </div>
             </div>
 
-            <div className="self-start lg:self-center">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/25">
-                Specialty: Native Android &amp; Healthcare Mobile
-              </span>
+            <div className="self-start lg:self-center w-full lg:w-auto">
+              <div className="inline-flex flex-wrap items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded text-[11px] sm:text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/25 max-w-full leading-relaxed">
+                <span className="font-semibold text-blue-300">Specialty:</span>
+                <span>Native Android &amp; Healthcare Mobile</span>
+              </div>
             </div>
           </div>
 
@@ -189,7 +191,7 @@ const WorkExperience = () => {
           </ul>
 
           {/* Tech Badges Footer */}
-          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center gap-2">
+          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center gap-1.5 sm:gap-2">
             {['Android SDK', 'Kotlin', 'Java', 'JNI', 'Performance Optimization', 'App Store & Play Store CI/CD'].map((tag) => (
               <span 
                 key={tag}
