@@ -1,150 +1,172 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('init');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [showSearch, setShowSearch] = useState(false);
-  const searchInputRef = useRef(null);
-
-  const searchItems = [
-    { name: 'Init (Hero)', id: 'init' },
-    { name: 'Tech Stack (Skills)', id: 'tech' },
-    { name: 'Projects (Case Studies)', id: 'projects' },
-    { name: 'Experience (Timeline)', id: 'experience' },
-    { name: 'Contact (Email)', id: 'contact' },
-  ];
-
-  const filteredItems = searchItems.filter(item => 
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+const Navbar = ({ onOpenArchitectureModal }) => {
+  const [activeTab, setActiveTab] = useState('about');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      // CMD+K or CTRL+K
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        searchInputRef.current?.focus();
-      }
-      if (e.key === 'Escape') {
-        setShowSearch(false);
-        setSearchQuery('');
-        searchInputRef.current?.blur();
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      const sections = [
+        { id: 'about', offset: 0 },
+        { id: 'experience', offset: 0 },
+        { id: 'architecture', offset: 0 },
+        { id: 'tech', offset: 0 },
+        { id: 'contact', offset: 0 }
+      ];
+
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) {
+            setActiveTab(section.id);
+            break;
+          }
+        }
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
 
-  const handleSearchSelect = (e, id) => {
-    scrollToSection(e, id);
-    setSearchQuery('');
-    setShowSearch(false);
-    searchInputRef.current?.blur();
-  };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (e, id) => {
     e.preventDefault();
     setActiveTab(id);
+    setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      // Offset for fixed navbar
-      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+      const y = element.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['init', 'tech', 'projects', 'experience', 'contact'];
-      let currentSection = activeTab;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // If the top of the element is within the upper half of the screen
-          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = section;
-          }
-        }
-      }
-      
-      if (currentSection !== activeTab) {
-        setActiveTab(currentSection);
-      }
-    };
+  const navLinks = [
+    { name: 'About', id: 'about' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Architecture & Systems', id: 'architecture' },
+    { name: 'Tech Stack', id: 'tech' },
+    { name: 'Contact', id: 'contact' }
+  ];
 
-    window.addEventListener('scroll', handleScroll);
-    // Call once to set initial state based on scroll position
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeTab]);
-
-  const getLinkClasses = (tabName) => {
-    const baseClasses = "font-mono uppercase tracking-widest text-sm transition-colors pb-1";
-    if (activeTab === tabName) {
-      return baseClasses + " text-indigo-400 border-b-2 border-indigo-400 font-bold";
-    }
-    return baseClasses + " text-slate-400 hover:text-indigo-200";
-  };
   return (
-    <nav className="fixed top-0 w-full border-b border-white/10 bg-slate-900/40 backdrop-blur-xl z-50 shadow-[0_0_40px_rgba(99,102,241,0.05)]">
-      <div className="flex justify-between items-center w-full px-6 py-4 max-w-full">
-        <div className="font-mono font-bold text-xl tracking-tighter text-indigo-400 dark:text-indigo-300">
-          KINETIC_TERMINAL
-        </div>
-        <div className="hidden md:flex items-center space-x-8">
-          <a className={getLinkClasses('init')} href="#init" onClick={(e) => scrollToSection(e, 'init')}>Init</a>
-          <a className={getLinkClasses('tech')} href="#tech" onClick={(e) => scrollToSection(e, 'tech')}>Tech Stack</a>
-          <a className={getLinkClasses('projects')} href="#projects" onClick={(e) => scrollToSection(e, 'projects')}>Projects</a>
-          <a className={getLinkClasses('experience')} href="#experience" onClick={(e) => scrollToSection(e, 'experience')}>Experience</a>
-          <a className={getLinkClasses('contact')} href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact</a>
-        </div>
-        <div className="flex items-center gap-4 relative">
-          <div className="hidden lg:flex items-center bg-surface-container-lowest border border-primary/20 rounded px-3 py-1.5 w-64 group focus-within:border-primary transition-all relative">
-            <span className="material-symbols-outlined text-outline text-sm mr-2" data-icon="terminal">terminal</span>
-            <input 
-              ref={searchInputRef}
-              className="bg-transparent border-none text-xs font-mono focus:ring-0 p-0 placeholder:text-outline/50 w-full uppercase outline-none" 
-              placeholder="CMD + K TO SEARCH" 
-              type="text" 
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setShowSearch(true);
-              }}
-              onFocus={() => setShowSearch(true)}
-              onBlur={() => setTimeout(() => setShowSearch(false), 200)}
-            />
-            {/* Search Dropdown */}
-            {showSearch && searchQuery && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-surface-container-highest border border-primary/20 rounded-md shadow-2xl z-50 overflow-hidden">
-                {filteredItems.length > 0 ? (
-                  filteredItems.map((item, idx) => (
-                    <button
-                      key={idx}
-                      className="w-full text-left px-4 py-3 text-xs font-mono uppercase text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors flex items-center gap-2 border-b border-white/5 last:border-b-0 cursor-pointer"
-                      onClick={(e) => handleSearchSelect(e, item.id)}
-                    >
-                      <span className="text-secondary">&gt;_</span>
-                      {item.name}
-                    </button>
-                  ))
-                ) : (
-                  <div className="px-4 py-3 text-xs font-mono uppercase text-error-dim opacity-70">
-                    ERR: NO_MATCHES_FOUND
-                  </div>
-                )}
-              </div>
-            )}
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-[#080d19]/90 backdrop-blur-md border-b border-[#1b263b] shadow-xl shadow-black/20' 
+        : 'bg-[#080d19]/70 backdrop-blur-sm border-b border-[#162033]'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Brand / Logo */}
+        <a 
+          href="#about" 
+          onClick={(e) => scrollToSection(e, 'about')}
+          className="flex items-center gap-3 group"
+        >
+          {/* Hexagonal Tech Icon */}
+          <div className="w-8 h-8 rounded bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:border-blue-400 group-hover:bg-blue-600/20 transition-all">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
           </div>
-          <button className="p-2 hover:bg-white/5 transition-all duration-200 cursor-pointer">
-            <span className="material-symbols-outlined text-indigo-400" data-icon="settings">settings</span>
+
+          <div className="flex items-center gap-2">
+            <span className="font-heading font-bold text-sm tracking-wide text-white group-hover:text-blue-300 transition-colors">
+              GOWRISHANKAR K
+            </span>
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium tracking-tight bg-amber-500/10 text-amber-400 border border-amber-500/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              PROD ENGINEER // ARCH
+            </span>
+          </div>
+        </a>
+
+        {/* Center Nav Links */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          {navLinks.map((link) => {
+            const isActive = activeTab === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)}
+                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 ${
+                  isActive
+                    ? 'text-white bg-blue-600/15 border border-blue-500/30 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Right Action: Download Resume */}
+        <div className="flex items-center gap-3">
+          <a
+            href="/Gowrishankar_K_Resume.pdf"
+            download="Gowrishankar_K_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold shadow-md shadow-blue-600/25 transition-all duration-150 hover:shadow-blue-600/40 active:scale-95"
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-1.5 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
           </button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#090e1b] border-b border-[#1b273d] px-4 pt-2 pb-4 space-y-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => scrollToSection(e, link.id)}
+              className="block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60"
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-2 border-t border-slate-800/80">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenArchitectureModal) onOpenArchitectureModal();
+              }}
+              className="w-full text-left px-3 py-2 rounded-md text-xs font-mono text-blue-400 hover:bg-blue-900/20"
+            >
+              &gt; Open Architecture Specs
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
