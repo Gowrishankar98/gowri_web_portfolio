@@ -26,12 +26,36 @@ const Hero = ({ onOpenArchitectureModal }) => {
   };
 
   return (
-    <section id="about" className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto tech-grid-bg">
+    <section id="about" className="relative isolate pt-24 pb-12 lg:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto tech-grid-bg overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-12 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute top-24 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-12 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+      <div className="absolute top-24 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none z-0"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      {/* Central Ambient Rotating React Logo Watermark */}
+      <div
+        aria-hidden="true"
+        className="absolute top-[320px] sm:top-[340px] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[680px] lg:h-[680px] pointer-events-none select-none z-0"
+      >
+        {/* Soft Radial Cyan & Blue Glow */}
+        <div className="absolute inset-0 bg-[#00d8ff]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        {/* Slow Spinning Vector React Atom */}
+        <svg
+          viewBox="-11.5 -10.23174 23 20.46348"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full text-[#00d8ff]/35 sm:text-[#00d8ff]/40 animate-spin-slow drop-shadow-[0_0_35px_rgba(0,216,255,0.4)]"
+        >
+          <circle cx="0" cy="0" r="2.2" fill="currentColor" className="opacity-80" />
+          <g stroke="currentColor" strokeWidth="1.2" fill="none">
+            <ellipse rx="11" ry="4.2" />
+            <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+            <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* ================= LEFT COLUMN: HERO PROFILE & MISSION ================= */}
         <div className="lg:col-span-7 flex flex-col space-y-6">
           {/* Top 3 Pills */}
@@ -282,8 +306,8 @@ const Hero = ({ onOpenArchitectureModal }) => {
                       }
                     }}
                     className={`px-2.5 py-1.5 rounded text-[11px] font-mono text-center transition-all cursor-pointer truncate ${isActive
-                        ? 'bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/30 border border-blue-400/40'
-                        : 'bg-[#0f172a] text-slate-400 hover:text-slate-200 border border-[#1e293b] hover:border-slate-600'
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/30 border border-blue-400/40'
+                      : 'bg-[#0f172a] text-slate-400 hover:text-slate-200 border border-[#1e293b] hover:border-slate-600'
                       }`}
                   >
                     {pill}
