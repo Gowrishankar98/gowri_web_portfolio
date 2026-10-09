@@ -86,21 +86,21 @@ const CoreCompetencies = () => {
             </svg>
             <span>TECHNICAL DOMAINS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white tracking-tight">
             Core Competencies &amp; System Capabilities
           </h2>
         </div>
-        <p className="text-slate-400 text-xs sm:text-sm max-w-md md:text-right leading-relaxed">
+        <p className="text-slate-400 text-xs sm:text-sm max-w-md text-left md:text-right leading-relaxed">
           A rigorous breakdown of languages, frameworks, toolchains, bridge layers, and real-time communication modules mastered in production scale.
         </p>
       </div>
 
       {/* 4 Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {domains.map((domain) => (
           <div
             key={domain.title}
-            className="glass-card rounded-xl p-5 space-y-4 border border-[#1b273d] bg-[#0b101f] shadow-md flex flex-col justify-between hover:border-blue-500/30"
+            className="glass-card rounded-xl p-4 sm:p-5 space-y-4 border border-[#1b273d] bg-[#0b101f] shadow-md flex flex-col justify-between hover:border-blue-500/30"
           >
             <div className="space-y-2">
               {/* Card Header with Icon */}
@@ -113,7 +113,7 @@ const CoreCompetencies = () => {
                 </h3>
               </div>
 
-              <p className="text-[11px] text-slate-400 leading-normal min-h-[32px]">
+              <p className="text-[11px] text-slate-400 leading-normal min-h-0 sm:min-h-[32px]">
                 {domain.subtitle}
               </p>
             </div>
@@ -133,10 +133,10 @@ const CoreCompetencies = () => {
                 return (
                   <div
                     key={spec.label}
-                    className="flex items-center justify-between py-1 px-1.5 rounded hover:bg-white/[0.02] text-xs font-mono"
+                    className="flex items-center justify-between gap-2 py-1.5 px-2 rounded hover:bg-white/[0.02] text-xs font-mono"
                   >
-                    <span className="text-slate-400 text-[11px]">{spec.label}</span>
-                    <span className={`px-2 py-0.5 rounded text-[10px] border truncate max-w-[130px] ${badgeClass}`}>
+                    <span className="text-slate-400 text-[11px] truncate">{spec.label}</span>
+                    <span className={`px-2 py-0.5 rounded text-[10px] border whitespace-nowrap shrink-0 ${badgeClass}`}>
                       {spec.value}
                     </span>
                   </div>

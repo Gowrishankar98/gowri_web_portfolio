@@ -63,10 +63,10 @@ const Navbar = ({ onOpenArchitectureModal }) => {
         <a 
           href="#about" 
           onClick={(e) => scrollToSection(e, 'about')}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
         >
           {/* Hexagonal Tech Icon */}
-          <div className="w-8 h-8 rounded bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:border-blue-400 group-hover:bg-blue-600/20 transition-all">
+          <div className="w-8 h-8 rounded bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:border-blue-400 group-hover:bg-blue-600/20 transition-all shrink-0">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
               <polyline points="2 17 12 22 22 17"></polyline>
@@ -75,7 +75,7 @@ const Navbar = ({ onOpenArchitectureModal }) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="font-heading font-bold text-sm tracking-wide text-white group-hover:text-blue-300 transition-colors">
+            <span className="font-heading font-bold text-xs sm:text-sm tracking-wide text-white group-hover:text-blue-300 transition-colors whitespace-nowrap">
               GOWRISHANKAR K
             </span>
             <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium tracking-tight bg-amber-500/10 text-amber-400 border border-amber-500/30">
@@ -107,26 +107,28 @@ const Navbar = ({ onOpenArchitectureModal }) => {
         </nav>
 
         {/* Right Action: Download Resume */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="/Gowrishankar_K_Resume.pdf"
             download="Gowrishankar_K_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold shadow-md shadow-blue-600/25 transition-all duration-150 hover:shadow-blue-600/40 active:scale-95"
+            aria-label="Download Resume"
+            title="Download Resume"
+            className="inline-flex items-center justify-center gap-2 p-2 sm:px-3.5 sm:py-1.5 rounded-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold shadow-md shadow-blue-600/25 transition-all duration-150 hover:shadow-blue-600/40 active:scale-95 shrink-0"
           >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span>Download Resume</span>
+            <span className="hidden sm:inline">Download Resume</span>
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+            className="md:hidden p-1.5 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none shrink-0"
             aria-label="Toggle menu"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,7 +155,21 @@ const Navbar = ({ onOpenArchitectureModal }) => {
               {link.name}
             </a>
           ))}
-          <div className="pt-2 border-t border-slate-800/80">
+          <div className="pt-2 border-t border-slate-800/80 space-y-1">
+            <a
+              href="/Gowrishankar_K_Resume.pdf"
+              download="Gowrishankar_K_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-xs font-mono text-emerald-400 hover:bg-emerald-900/20"
+            >
+              <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume (PDF)</span>
+            </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

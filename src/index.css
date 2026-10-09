@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @layer base {
+  html,
   body {
     background-color: #080c16;
     color: #e2e8f0;
     overflow-x: hidden;
+    max-width: 100%;
   }
   
   /* Custom modern dark scrollbar */
@@ -75,5 +77,18 @@
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 35s linear infinite;
   }
 }

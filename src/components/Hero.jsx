@@ -26,12 +26,36 @@ const Hero = ({ onOpenArchitectureModal }) => {
   };
 
   return (
-    <section id="about" className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto tech-grid-bg">
+    <section id="about" className="relative isolate pt-24 pb-12 lg:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto tech-grid-bg overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-12 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute top-24 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-12 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+      <div className="absolute top-24 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none z-0"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      {/* Central Ambient Rotating React Logo Watermark */}
+      <div
+        aria-hidden="true"
+        className="absolute top-[320px] sm:top-[340px] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[680px] lg:h-[680px] pointer-events-none select-none z-0"
+      >
+        {/* Soft Radial Cyan & Blue Glow */}
+        <div className="absolute inset-0 bg-[#00d8ff]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        {/* Slow Spinning Vector React Atom */}
+        <svg
+          viewBox="-11.5 -10.23174 23 20.46348"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full text-[#00d8ff]/35 sm:text-[#00d8ff]/40 animate-spin-slow drop-shadow-[0_0_35px_rgba(0,216,255,0.4)]"
+        >
+          <circle cx="0" cy="0" r="2.2" fill="currentColor" className="opacity-80" />
+          <g stroke="currentColor" strokeWidth="1.2" fill="none">
+            <ellipse rx="11" ry="4.2" />
+            <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+            <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* ================= LEFT COLUMN: HERO PROFILE & MISSION ================= */}
         <div className="lg:col-span-7 flex flex-col space-y-6">
           {/* Top 3 Pills */}
@@ -41,7 +65,7 @@ const Hero = ({ onOpenArchitectureModal }) => {
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                 <line x1="12" y1="18" x2="12.01" y2="18"></line>
               </svg>
-              <span>Android / React Native Engineer</span>
+              <span>React Native Engineer</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-[#0f172a] border border-[#1e293b] text-slate-300 shadow-sm">
@@ -64,10 +88,10 @@ const Hero = ({ onOpenArchitectureModal }) => {
 
           {/* Heading */}
           <div className="space-y-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-none">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-tight">
               Gowrishankar K
             </h1>
-            <p className="text-xl sm:text-2xl font-medium text-slate-300 tracking-normal pt-1">
+            <p className="text-lg sm:text-2xl font-medium text-slate-300 tracking-normal pt-1">
               Senior Software Engineer
             </p>
           </div>
@@ -78,7 +102,7 @@ const Hero = ({ onOpenArchitectureModal }) => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <button
               onClick={() => {
                 if (onOpenArchitectureModal) {
@@ -87,9 +111,9 @@ const Hero = ({ onOpenArchitectureModal }) => {
                   scrollToSection('architecture');
                 }
               }}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold shadow-lg shadow-blue-600/30 transition-all hover:shadow-blue-600/40 active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold shadow-lg shadow-blue-600/30 transition-all hover:shadow-blue-600/40 active:scale-95 cursor-pointer w-full sm:w-auto"
             >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                 <polyline points="2 17 12 22 22 17"></polyline>
                 <polyline points="2 12 12 17 22 12"></polyline>
@@ -99,9 +123,9 @@ const Hero = ({ onOpenArchitectureModal }) => {
 
             <button
               onClick={() => scrollToSection('contact')}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md border border-[#23334d] bg-[#0c1322] hover:bg-[#131c30] text-slate-200 text-xs font-semibold transition-all hover:border-slate-500 active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-md border border-[#23334d] bg-[#0c1322] hover:bg-[#131c30] text-slate-200 text-xs font-semibold transition-all hover:border-slate-500 active:scale-95 cursor-pointer w-full sm:w-auto"
             >
-              <svg className="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="w-4 h-4 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -110,10 +134,10 @@ const Hero = ({ onOpenArchitectureModal }) => {
           </div>
 
           {/* System Terminal Status Banner */}
-          <div className="rounded-lg border border-[#1b273d] bg-[#090e1b] p-3.5 space-y-2 mt-4 shadow-inner">
-            <div className="flex items-center justify-between text-[11px] font-mono">
+          <div className="rounded-lg border border-[#1b273d] bg-[#090e1b] p-3 sm:p-3.5 space-y-2.5 mt-4 shadow-inner">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono">
               <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-red-500"></span>
                   <span className="w-2 h-2 rounded-full bg-amber-400"></span>
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -122,12 +146,12 @@ const Hero = ({ onOpenArchitectureModal }) => {
                   SYSTEM STATUS: NORMAL
                 </span>
               </div>
-              <span className="text-amber-400/90 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 text-[10px]">
+              <span className="self-start sm:self-auto text-amber-400/90 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 text-[10px] font-medium">
                 ENV: 4+ PROD APPS IN PRODUCTION
               </span>
             </div>
 
-            <div className="space-y-1 text-[11px] font-mono text-slate-400/90 leading-tight">
+            <div className="space-y-1.5 text-[11px] font-mono text-slate-400/90 leading-tight">
               <p className="truncate">
                 <span className="text-slate-500 select-none">&gt; </span>
                 Production context: Bharat Matrimony Multi-Tenant, Twilio Video Integration, TurboModules, MMKV v2, Hermes Core
@@ -136,7 +160,7 @@ const Hero = ({ onOpenArchitectureModal }) => {
                 <p className="truncate">
                   platform // cross-platform // native-bridge // android // ios // web // web-view microservices
                 </p>
-                <button 
+                <button
                   onClick={handleCopyLog}
                   className="text-slate-400 hover:text-blue-400 transition-colors ml-2 shrink-0 cursor-pointer"
                   title="Copy log context"
@@ -259,11 +283,11 @@ const Hero = ({ onOpenArchitectureModal }) => {
 
           {/* Bottom Platform Runtime Bar */}
           <div className="rounded-lg border border-[#1b273d] bg-[#090e1b] p-3 space-y-2.5">
-            <div className="flex items-center justify-between text-[10px] font-mono">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[10px] font-mono">
               <span className="text-slate-400 tracking-wider">
                 CROSS-PLATFORM ARCHITECTURAL RUNTIME
               </span>
-              <span className="text-amber-400 font-semibold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
+              <span className="self-start sm:self-auto text-amber-400 font-semibold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
                 HERMES ENGINE v0.72+
               </span>
             </div>
@@ -281,11 +305,10 @@ const Hero = ({ onOpenArchitectureModal }) => {
                         onOpenArchitectureModal();
                       }
                     }}
-                    className={`px-2.5 py-1.5 rounded text-[11px] font-mono text-center transition-all cursor-pointer truncate ${
-                      isActive
-                        ? 'bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/30 border border-blue-400/40'
-                        : 'bg-[#0f172a] text-slate-400 hover:text-slate-200 border border-[#1e293b] hover:border-slate-600'
-                    }`}
+                    className={`px-2.5 py-1.5 rounded text-[11px] font-mono text-center transition-all cursor-pointer truncate ${isActive
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/30 border border-blue-400/40'
+                      : 'bg-[#0f172a] text-slate-400 hover:text-slate-200 border border-[#1e293b] hover:border-slate-600'
+                      }`}
                   >
                     {pill}
                   </button>

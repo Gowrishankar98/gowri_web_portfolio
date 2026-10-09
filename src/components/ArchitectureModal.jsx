@@ -12,20 +12,21 @@ const ArchitectureModal = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#182338] bg-[#080d19]">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
-            <span className="font-heading font-bold text-sm text-white tracking-wide">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#182338] bg-[#080d19]">
+          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 pr-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse shrink-0"></span>
+            <span className="font-heading font-bold text-xs sm:text-sm text-white tracking-wide truncate">
               SYSTEM ARCHITECTURE SPECIFICATION LOGS
             </span>
-            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">
+            <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 shrink-0">
               v0.72-PRODUCTION
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+            className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
+            aria-label="Close modal"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -34,7 +35,7 @@ const ArchitectureModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-2 px-6 pt-3 border-b border-[#182338] bg-[#090e1b] overflow-x-auto hide-scrollbar">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 pt-2.5 sm:pt-3 border-b border-[#182338] bg-[#090e1b] overflow-x-auto hide-scrollbar">
           {[
             { id: 'turbomodules', label: 'TurboModules & JSI' },
             { id: 'multitenant', label: 'Multi-Tenant Monorepo' },
@@ -44,7 +45,7 @@ const ArchitectureModal = ({ isOpen, onClose }) => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-3.5 py-2 text-xs font-mono tracking-wider transition-colors border-b-2 whitespace-nowrap cursor-pointer ${
+              className={`px-3 sm:px-3.5 py-2 text-xs font-mono tracking-wider transition-colors border-b-2 whitespace-nowrap cursor-pointer ${
                 activeTab === tab.id
                   ? 'border-blue-500 text-white font-semibold bg-blue-500/10'
                   : 'border-transparent text-slate-400 hover:text-slate-200'
@@ -56,7 +57,7 @@ const ArchitectureModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto space-y-6 text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-6 text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
           {activeTab === 'turbomodules' && (
             <div className="space-y-4">
               <div className="p-4 rounded-lg bg-[#070b15] border border-[#1e2a40] font-mono text-xs">
@@ -118,7 +119,7 @@ export const FeatureMatrix = currentTenant.features;`}
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 text-center font-mono text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 text-center font-mono text-xs">
                 <div className="p-3 rounded bg-[#0a0f1d] border border-[#1b273d]">
                   <div className="text-slate-400 text-[10px]">READ SPEED</div>
                   <div className="text-emerald-400 font-bold text-base mt-1">30x Faster</div>
@@ -145,12 +146,12 @@ export const FeatureMatrix = currentTenant.features;`}
               </div>
 
               <ul className="space-y-2 text-xs font-mono text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-amber-400">&gt;</span>
+                <li className="flex items-start sm:items-center gap-2">
+                  <span className="text-amber-400 shrink-0">&gt;</span>
                   <span>Audio Session Policy: Native AVAudioSession category playback / ambient ducking</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-amber-400">&gt;</span>
+                <li className="flex items-start sm:items-center gap-2">
+                  <span className="text-amber-400 shrink-0">&gt;</span>
                   <span>Network Recovery: Exponential backoff socket ping with 1.2s auto-reconnect</span>
                 </li>
               </ul>
@@ -159,7 +160,7 @@ export const FeatureMatrix = currentTenant.features;`}
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between px-6 py-3.5 border-t border-[#182338] bg-[#080d19]">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-3.5 border-t border-[#182338] bg-[#080d19]">
           <span className="text-[10px] font-mono text-slate-400">
             Press ESC or click close to dismiss
           </span>

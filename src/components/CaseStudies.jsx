@@ -39,11 +39,11 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
             </svg>
             <span>SYSTEM ARCHITECTURE DEEP-DIVES</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white tracking-tight">
             Featured Architecture Case Studies
           </h2>
         </div>
-        <p className="text-slate-400 text-xs sm:text-sm max-w-md md:text-right leading-relaxed">
+        <p className="text-slate-400 text-xs sm:text-sm max-w-md text-left md:text-right leading-relaxed">
           Detailed technical breakdowns addressing distributed mobile challenges, multi-tenancy, ultra-low-latency streaming, and high-concurrency event loops.
         </p>
       </div>
@@ -51,7 +51,7 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
       {/* Grid: 2 Side-by-Side Deep-Dive Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {/* ================= CARD 1: BHARAT MATRIMONY MULTI-TENANT ================= */}
-        <div className="glass-card rounded-xl p-6 sm:p-7 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg flex flex-col justify-between">
+        <div className="glass-card rounded-xl p-4 sm:p-6 lg:p-7 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg flex flex-col justify-between">
           <div className="space-y-4">
             {/* Top Badges */}
             <div className="flex items-center justify-between">
@@ -65,7 +65,7 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
 
             {/* Title & Description */}
             <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tight">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-white tracking-tight">
                 Bharat Matrimony Multi-Tenant Regional Architecture
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
@@ -74,8 +74,8 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
             </div>
 
             {/* Architecture Flow Box */}
-            <div className="rounded-lg border border-[#1e2a40] bg-[#070b15] p-4 space-y-3">
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="rounded-lg border border-[#1e2a40] bg-[#070b15] p-3 sm:p-4 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] font-mono text-slate-400">
                 <span>SHARED MONOREPO // REGIONAL ENGINE ROUTER</span>
                 <span className="text-blue-400">Click node to inspect</span>
               </div>
@@ -144,20 +144,31 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
           </div>
 
           {/* Footer Tags */}
-          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center gap-2">
-            {['NPM Workspaces', 'Redux State Management', 'Hermes Engine'].map((tag) => (
-              <span
-                key={tag}
-                className="px-2.5 py-1 rounded text-[11px] font-mono bg-[#0f172a] text-slate-300 border border-[#1e293b]"
+          <div className="pt-4 border-t border-[#182338] flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {['NPM Workspaces', 'Redux State Management', 'Hermes Engine'].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2.5 py-1 rounded text-[11px] font-mono bg-[#0f172a] text-slate-300 border border-[#1e293b]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {onOpenArchitectureModal && (
+              <button
+                onClick={onOpenArchitectureModal}
+                className="text-[11px] font-mono text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1 cursor-pointer"
               >
-                {tag}
-              </span>
-            ))}
+                <span>Specs Log</span>
+                <span>→</span>
+              </button>
+            )}
           </div>
         </div>
 
         {/* ================= CARD 2: TWILIO VIDEO & REAL-TIME ================= */}
-        <div className="glass-card rounded-xl p-6 sm:p-7 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg flex flex-col justify-between">
+        <div className="glass-card rounded-xl p-4 sm:p-6 lg:p-7 space-y-6 border border-[#1b273d] bg-[#0b101f] shadow-lg flex flex-col justify-between">
           <div className="space-y-4">
             {/* Top Badges */}
             <div className="flex items-center justify-between">
@@ -171,7 +182,7 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
 
             {/* Title & Description */}
             <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white tracking-tight">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-white tracking-tight">
                 Twilio Video &amp; Real-Time Match Interaction
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
@@ -180,15 +191,15 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
             </div>
 
             {/* Real-Time Metrics & Telemetry Box */}
-            <div className="rounded-lg border border-[#1e2a40] bg-[#070b15] p-4 space-y-3">
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="rounded-lg border border-[#1e2a40] bg-[#070b15] p-3 sm:p-4 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] font-mono text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   LIVE STREAM TELEMETRY
                 </span>
                 <button
                   onClick={simulatePing}
-                  className="text-blue-400 hover:text-blue-300 underline cursor-pointer"
+                  className="self-start sm:self-auto text-blue-400 hover:text-blue-300 underline cursor-pointer"
                 >
                   {isSimulating ? 'Pinging...' : 'Test Connection'}
                 </button>
@@ -211,7 +222,7 @@ const CaseStudies = ({ onOpenArchitectureModal }) => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 pt-1">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] font-mono text-slate-500 pt-1">
                 <span>Adaptive Bitrate: Dynamic Opus/H.264</span>
                 <span className="text-blue-400">Hardware Codec Ready</span>
               </div>
