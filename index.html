@@ -1,88 +1,60 @@
 <!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23070d1f%22/><text x=%2215%22 y=%2275%22 font-family=%22monospace%22 font-size=%2265%22 font-weight=%22bold%22 fill=%22%23a3a6ff%22>%3E_</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KINETIC_TERMINAL // GOWRISHANKAR K</title>
-    
-    <!-- User Provided Cyberpunk Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CDN & Config from User Code -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary-fixed": "#344e00",
-              "secondary": "#bff365",
-              "error-dim": "#d73357",
-              "outline-variant": "#41475b",
-              "inverse-primary": "#494bd7",
-              "secondary-dim": "#b2e558",
-              "on-secondary-fixed-variant": "#456500",
-              "on-primary-fixed": "#000000",
-              "surface-variant": "#1c253e",
-              "tertiary-container": "#c7fc6d",
-              "on-primary-fixed-variant": "#0e009d",
-              "on-error-container": "#ffb2b9",
-              "background": "#070d1f",
-              "primary-dim": "#6063ee",
-              "surface-container-high": "#171f36",
-              "primary-fixed": "#9396ff",
-              "surface-container-low": "#0c1326",
-              "tertiary": "#f1ffd3",
-              "inverse-surface": "#faf8ff",
-              "surface-tint": "#a3a6ff",
-              "on-surface": "#dfe4fe",
-              "on-secondary": "#3d5a00",
-              "primary-fixed-dim": "#8387ff",
-              "secondary-fixed-dim": "#b2e558",
-              "on-background": "#dfe4fe",
-              "on-secondary-container": "#ecffc7",
-              "secondary-container": "#476800",
-              "tertiary-fixed": "#caff6f",
-              "tertiary-fixed-dim": "#bcf063",
-              "surface-container-lowest": "#000000",
-              "primary": "#a3a6ff",
-              "on-tertiary": "#486900",
-              "surface": "#070d1f",
-              "error": "#ff6e84",
-              "error-container": "#a70138",
-              "surface-bright": "#222b47",
-              "outline": "#6f758b",
-              "surface-dim": "#070d1f",
-              "secondary-fixed": "#bff365",
-              "on-surface-variant": "#a5aac2",
-              "on-secondary-fixed": "#2f4600",
-              "primary-container": "#9396ff",
-              "surface-container-highest": "#1c253e",
-              "on-primary-container": "#0a0081",
-              "inverse-on-surface": "#4f5469",
-              "on-tertiary-container": "#416000",
-              "surface-container": "#11192e",
-              "on-primary": "#0f00a4",
-              "on-tertiary-fixed-variant": "#4b6d00",
-              "tertiary-dim": "#bcf063",
-              "on-error": "#490013"
-            },
-            fontFamily: {
-              "headline": ["JetBrains Mono", "monospace"],
-              "body": ["Inter", "sans-serif"],
-              "label": ["JetBrains Mono", "monospace"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23080c16%22/><text x=%2218%22 y=%2270%22 font-family=%22monospace%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22%233b82f6%22>GS</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gowrishankar K // Senior Software Engineer & Mobile Systems Architect</title>
+  <meta name="description"
+    content="Portfolio of Gowrishankar K - Senior Software Engineer specializing in React Native, Android & iOS architecture, TurboModules, MMKV, and real-time streaming systems." />
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CDN & Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "theme-bg": "#080c16",
+            "theme-subbg": "#0b101e",
+            "theme-card": "#0d1424",
+            "theme-card-hover": "#111a30",
+            "theme-border": "#1b273d",
+            "theme-border-light": "#253552",
+            "theme-blue": "#2563eb",
+            "theme-blue-light": "#3b82f6",
+            "theme-amber": "#f59e0b",
+            "theme-amber-light": "#fbbf24",
+            "theme-cyan": "#06b6d4",
+            "theme-emerald": "#10b981",
+            "theme-slate": "#94a3b8",
+            "theme-slate-light": "#cbd5e1",
+            "theme-slate-dark": "#64748b"
           },
-        },
+          fontFamily: {
+            "sans": ["Inter", "system-ui", "sans-serif"],
+            "heading": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        }
       }
-    </script>
-  </head>
-  <body class="bg-background text-on-surface font-body selection:bg-secondary selection:text-on-secondary-fixed">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    }
+  </script>
+</head>
+
+<body class="bg-[#080c16] text-[#e2e8f0] font-sans antialiased selection:bg-blue-600 selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
